@@ -1,0 +1,15 @@
+{
+    "units_input": 96,
+    "activation": "relu",
+    "dropout_input": 0.30000000000000004,
+    "num_layers": 4,
+    "units_0": 256,
+    "dropout_0": 0.2,
+    "optimizer": "rmsprop",
+    "units_1": 256,
+    "dropout_1": 0.1,
+    "units_2": 96,
+    "dropout_2": 0.30000000000000004,
+    "units_3": 256,
+    "dropout_3": 0.0
+}
