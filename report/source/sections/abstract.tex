@@ -1,0 +1,11 @@
+\csname documentclass\endcsname[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+Traffic congestion significantly impacts urban mobility, increasing travel times, fuel consumption, and CO\sub{2} emissions. Traditional congestion management systems typically rely on reactive strategies, responding only after congestion arises, making them ineffective during sudden surges caused by events like concerts or sports matches. This project addresses these challenges by developing a proactive congestion management framework that utilises advanced machine learning models and integrates external event data.
+
+We built a comprehensive data pipeline that incorporates traffic sensor data, weather conditions, and large-scale event schedules. Event features were encoded using a custom method, and a novel LLM-based attendance estimator was introduced to measure the impact of events. These inputs fed into a Multi-Layer Perceptron model for long-term traffic speed prediction. The resulting forecasts were integrated into a variable speed limit strategy to proactively manage congestion before it occurred.
+
+The event-enhanced predictive models outperformed current long-term forecasting models, achieving a MAPE of 12.44\%. Evaluation using SUMO simulations across both regular and high-traffic event days showed that the proactive method consistently reduced CO\sub{2} emissions by up to 3\%, as well as reducing or maintaining time loss in traffic, compared to baselines. Our proactive method outperforms reactive methods on event days by 2.5\%, demonstrating both technical effectiveness and real-world potential for improving urban traffic flow and sustainability during disruptive events.
+
+\end{document}

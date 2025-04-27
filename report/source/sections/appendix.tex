@@ -1,0 +1,45 @@
+\csname documentclass\endcsname[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+\section{Source Code}
+\label{appdx:a}
+All the accompanying source code for this project is available at \url{https://github.com/lourencofsilva/dissertation}
+
+\section{LLM-Based Attendance Estimation Prompt}
+\label{appdx:b}
+Context: You are an expert event planner. \\
+Please estimate the attendance for the following real events in Manchester. \\
+Return your answer as a JSON object where each key is the event ID and the value is the estimated attendance.
+
+\section{Reproducibility}
+\label{appdx:c}
+
+\paragraph{Compute Infrastructure}
+The workload was split between a main workstation and an off-site server. The off-site server hosted the InfluxDB database and ran the data scraping and conversion scripts in the background. All other experiments (model training, simulations, data analysis) ran on the main workstation.
+
+\paragraph{Off-site Server}
+\begin{itemize}
+  \item Cloud instance: Oracle Cloud \texttt{VM.Standard.A1.Flex}
+  \item Block storage: 200 GB
+  \item OS: Canonical Ubuntu 24.04
+\end{itemize}
+
+\paragraph{Main Workstation}
+\begin{itemize}
+  \item Machine: Apple MacBook Pro
+  \item CPU: Apple M1 Pro (10-core CPU, 16-core GPU)
+  \item RAM: 16 GB
+  \item Storage: 512 GB SSD
+  \item OS: macOS Sequoia (15.4)
+\end{itemize}
+
+\paragraph{Software Environment}
+\begin{itemize}
+  \item Python: 3.12.6
+  \item SUMO: 1.20.0
+  \item InfluxDB: 2.7.11
+  \item All Python dependencies are pinned in the \texttt{requirements.txt} file from the source code.
+\end{itemize}
+
+\end{document}

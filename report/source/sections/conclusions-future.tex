@@ -1,0 +1,40 @@
+\csname documentclass\endcsname[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+\subsection{Summary of Contributions}
+Our work comprehensively explores long-term traffic prediction and proactive congestion management using machine learning and real-world event integration.  We present an integrated model architecture for accurate traffic speed forecasting, an applied congestion mitigation framework for large-scale event days, and an LLM-based attempt at estimating event attendance.  Our contributions span predictive performance, operational deployment feasibility, and insight into data augmentation strategies using modern language models.
+
+\subsubsection{Achievements in Predictive Accuracy}
+We have developed an MLP-based model for long-term traffic speed prediction, achieving an average MAE of 2.32 and RMSE of 3.98 MPH, resulting in a MAPE of 12.44\% across all trained sensors.  This was achieved using a combination of cyclic encoding of time features and custom large-scale event encoding.  This model architecture performs better than current approaches by at least 1\% compared to other works performing long-term traffic speed prediction \cite{tedjopurnomo_trafformer_2023, kara_smart_2025}.  Notably, this is due to the lack of integration of large-scale event data in existing long-term speed prediction models, which enables us to achieve higher accuracy.  Most existing models also focus solely on prediction for up to a few days or weeks, while our proposed model can be used as far in advance as necessary, given that the relevant event data is available.
+
+\subsubsection{Advancements in Proactive Congestion Management}
+While we faced significant challenges in generating demand representative of the real world in our simulations, showing errors of 12\% to 19\%, we are still confident that the generated demand trend is sufficiently close to provide valid results.  From this, we have developed a proactive congestion management technique, based on our prediction model, that achieves a significant reduction of more than 3\% in CO\sus{2} emissions from baseline, compared to a typical reactive technique’s 0.5\%, for days where large-scale events take place, while also reducing time loss in traffic and minimally affecting travel time.  Our proposed technique is similar to the reactive technique during typical days, showing its usefulness in traffic congestion management overall, with more significant results during event days.  This technique also involves rounding speed limits to demonstrate the possibility of real-world deployment while maintaining results that surpass those of reactive techniques.
+
+\subsubsection{Novel LLM-based Attendance Estimation}
+While the LLM-based Attendance Estimation feature designed and tested in this project concluded with disappointing results, the architecture and research behind it are still significant achievements.  We integrated an LLM-based architecture to augment the feature engineering of a more typical MLP Model.  While the results in this particular use case were disappointing, this has the potential of much better performance when applied to a greater variety of events or cities, especially where venues are typically not at full capacity for every event, or as a stepping stone towards vaster integration of LLMs for feature engineering in ML models.
+
+\subsection{Future Research Directions}
+Several routes for future research have been identified based on the methods and findings of this project.  These directions aim to improve prediction accuracy, enable generalisation across broader contexts, and bridge the gap between simulation and real-world deployment.
+
+\subsubsection{Expanding Data Sources}
+ Firstly, the expansion of data sources, both in terms of events and traffic, could significantly improve the performance of the proposed models.  Collaborations with traffic authorities, Google Maps or the usage of the TomTom API could augment this data.  In particular, if vast traffic data were available, a graph-based neural network could perform extremely well.
+
+\subsubsection{Advanced Control Strategies for Congestion Management}
+While we tested a subset of possible learning models and congestion management strategies, many others, including more advanced control strategies, can also be tested and have a significant impact on the area.  Firstly, while we could not test reinforcement learning algorithms due to the lack of available data, these algorithms have shown great potential and could significantly improve the proposed architecture. Additionally, a mix of predictive and reactive algorithms may provide the best congestion management technique, as mentioned earlier in the hybrid approach.
+
+\subsubsection{Field Testing and Large-Scale Deployment}
+The results show our predictive model reliably forecasts speeds across all sensors, and our VSL-based proactive technique outperforms reactive methods in simulation. While demand-generation limitations may affect accuracy, refining these will confirm real-world viability. The approach can be adapted to other networks, and fog or cloud computing can offset its higher computational demands. Partnering with traffic authorities on pilot tests can smooth the path to deployment, cutting congestion, emissions, and travel time.
+
+\subsection{Key Takeaways}
+To summarise, we have been able to design a prototype capable of event-enhanced traffic prediction that motivates the use of proactive congestion management techniques through simulation verification, achieving the following initial goals:
+\begin{itemize}
+  \item \textbf{Predictive Traffic Model Development}: MLP with cyclic time encoding and custom event features achieved a MAPE of 12.44\%, surpassing current techniques.
+  \item \textbf{Integration of External Data Sources}: Ingested major event schedules with custom encoding, yielding a 1 \% lift over no-event baselines.
+  \item \textbf{Proactive Congestion Management Algorithm}: Our VSL-based proactive algorithm cuts CO\sub{2} emissions by more than 3 \% compared to 0.5 \% with reactive on event days, with similar time loss and trip duration.
+  \item \textbf{Realistic Simulation Environment}: Built SUMO scenarios for both regular and large-event days using real sensor and event data, although with a high error rate.
+  \item \textbf{Benchmarking and Analysis}: Compared proactive vs.\ reactive methods on travel time, emissions, and time-loss.
+\end{itemize}
+
+
+\end{document}

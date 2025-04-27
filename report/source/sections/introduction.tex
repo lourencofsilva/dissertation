@@ -1,0 +1,43 @@
+\csname documentclass\endcsname[../main.tex]{subfiles}
+\graphicspath{{\subfix{../images/}}}
+\begin{document}
+
+\subsection{Project Context and Motivation}
+Traffic congestion remains a critical challenge in urban mobility, wasting time and fuel, creating excess CO\textsubscript{2} emissions, and incurring significant economic costs. In 2019 alone, congestion in the United States was estimated to have caused around \$190~billion in lost time and excess fuel consumption while also contributing to 2\% of CO\textsubscript{2} emissions \cite{office_intelligent_nodate, noauthor_emissions_2022}. These figures highlight the need for better traffic management systems.
+
+In response, researchers have focused on the \abbrev{Intelligent Transportation System}{ITS} area, which aims to improve travel reliability, safety, and efficiency. Many traditional ITS solutions work through real-time monitoring and reactive control. These systems respond upon detecting congestion, for example, by adjusting traffic signal timings or speed limits. However, reactive measures often struggle in dynamic settings, especially during sudden traffic surges from large events.
+
+Advances in neural networks and external datasets now enable a shift to predictive control. This shift enables systems to forecast congestion before it happens and take preemptive measures, for instance, adjusting traffic signals, routing flows differently, or alerting drivers in advance. Das \textit{et al.} (2025) has demonstrated that using machine learning for traffic prediction and management can substantially reduce time lost by travellers, offering a “pragmatic, cost-effective solution” that can be integrated with existing infrastructure \cite{das_traffic_2025}.
+
+Despite the proven potential, predictive approaches are not yet widely used in ITS deployments, especially those that factor in external impacts like major events. Events such as concerts, sports matches, or festivals can rapidly overload urban road networks in ways that typical congestion detectors miss, leading to outsized disruption. Moreover, much of the existing research is limited, often lacking the integration of external data or the ability to provide simulations for evaluating their approaches.
+
+This project aims to address these gaps. As part of this work, we have investigated the availability and quality of multiple data sources, including road traffic observations (such as traffic sensors) and traffic-impacting events (such as football matches and concerts). We have designed, implemented, and tested data collection and processing pipelines, performed detailed profiling of roads and event impacts, and created advanced data engineering pipelines, applying techniques for data cleaning and integration. We proposed and evaluated novel optimisation mechanisms for custom event feature encoding and attendance estimation based on a Large Language Model (LLM). The predictive traffic model was implemented and tested against state-of-the-art techniques using metrics such as \abbrev{Mean Absolute Error}{MAE}, \abbrev{Mean Squared Error}{MSE}, \abbrev{Root Mean Squared Error}{RMSE}, and \abbrev{Mean Absolute Percentage Error}{MAPE}. Traffic simulations were conducted using SUMO, comparing the effectiveness of proactive strategies against traditional reactive ones, evaluating based on criteria including travel time, CO\sub{2} emissions, and time lost in traffic. By training models on real-world and historical data sources and validating them rigorously through simulations, the project demonstrates how anticipating problems and acting early can lead to improvements in traffic conditions, focusing on reductions in CO\sub{2} emissions and time lost by travellers.
+
+\subsection{Aims and Objectives}
+This project aims to demonstrate that a proactive traffic management prototype, capable of accurately predicting and managing congestion before it occurs, can be effective. To achieve this, we will perform the following objectives:
+
+\begin{itemize}
+\item \textbf{Predictive Traffic Model Development}: Implement a robust machine learning model to forecast future traffic conditions accurately, evaluating performance using standard ML metrics such as MAE, RMSE, and MAPE.
+\item \textbf{Integration of External Data Sources}: Incorporate external data, notably major event schedules, to enhance prediction accuracy.
+\item \textbf{Proactive Congestion Management Algorithm}: Develop an algorithm capable of proactively mitigating congestion by expanding typical reactive congestion management methods.
+\item \textbf{Development of a Realistic Simulation Environment}: Create a realistic simulation environment using real-world traffic data to rigorously test and validate our proactive management algorithm.
+\item \textbf{Benchmarking and Analysis}: Evaluate the performance of our algorithm against existing congestion management techniques within our simulated environment, measuring impact using metrics such as travel time reductions and estimated CO\sub{2} emissions.
+\end{itemize}
+
+\subsection{Evaluation Strategy}
+To evaluate our proposed framework, we focus on two distinct areas: the prediction accuracy achieved by our models and the congestion reduction achieved in simulation.
+
+First, prediction metrics such as MAE, RMSE, and MAPE will be extracted during model development, comparing different models and feature engineering techniques. These results are compared with state-of-the-art research to validate the importance of events in traffic prediction.
+
+For simulations, we will test diverse traffic scenarios, including regular days and days with large-scale events, using the SUMO simulator. We compare key performance metrics from the simulations, including travel time and estimated CO\sub{2} emissions, between baseline, traditional reactive, and our proactive congestion management techniques. Demonstrating measurable improvements in these metrics validates the real-world potential of our prototype.
+
+\subsection{Report Structure}
+\textbf{\hyperref[sec:background]{Background and Related Work}} will cover a background literature review on relevant theory for the project (such as forecasting methods, congestion management approaches, and simulation techniques), as well as an overview of related work.
+
+\textbf{\hyperref[sec:design-implementation]{Design and Implementation}} presents the design choices made for the system and explains the architecture behind them and how they were implemented. This flows through data collection and storage, data analysis, predictive modelling, and traffic simulation. We also discuss the advantages and disadvantages of certain decisions and challenges encountered.
+
+\textbf{\hyperref[sec:results-discussions]{Results and Discussion}} covers the approach taken towards the evaluation and testing of the system. We present the results of both model performance and simulation outcomes, followed by a critical discussion of the findings.
+
+\textbf{\hyperref[sec:conclusions-future]{Conclusions and Future Work}} reflects on the contributions and achievements of the proactive congestion management prototype and how it could be adapted for use in the industry. We also explore possible future work directions derived from the project’s development.
+
+\end{document}

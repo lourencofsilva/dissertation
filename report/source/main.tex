@@ -1,0 +1,155 @@
+%%%%%%%%%%%%%%%%%% DOCUMENT METADATA %%%%%%%%%%%%%%%%%%
+\begin{filecontents*}{\jobname.xmpdata}
+  \Title{Event-Enhanced Proactive Congestion Management: A Data-Driven Approach to Reducing Congestion and CO\textsubscript{2} Emissions} 
+  \Author{Lourenço Figueiredo Silva}
+  \Language{en-GB}
+  \Copyrighted{True}
+\end{filecontents*}
+
+
+%%%%%%%%%%%%%%%%%% DOCUMENT SETUP %%%%%%%%%%%%%%%%%%
+\documentclass{template/uom_cs_dissertation} 
+
+
+%%%%%%%%%%%%%%%%%% PACKAGES AND COMMANDS %%%%%%%%%%%%%%%%%%
+
+% Packages
+\usepackage{graphicx,psfrag,color} % for postscript graphics files
+  \graphicspath{ {./images/} }
+\usepackage{amsmath}               % assumes amsmath package installed
+  \allowdisplaybreaks[1]           % allow eqnarrays to break across pages
+\usepackage{amssymb}               % assumes amsmath package installed 
+\usepackage{url}                   % format hyperlinks correctly
+\usepackage{rotating}              % allow portrait figures and tables
+
+\usepackage{multirow}              % allows merging of rows in tables
+\usepackage{lscape}                % allows pages to be typeset in landscape mode
+\usepackage{tabularx}              % allows fixed width tables
+\usepackage{verbatim}              % enhanced version of built-in verbatim environment
+\usepackage{footnote}              % allows more control over footnote environments
+\usepackage{float}                 % allows H option on floats to force here placement
+\usepackage{booktabs}              % improve table line spacing
+\usepackage{lipsum}                % for adding dummy text here
+\usepackage{minted}
+\RecustomVerbatimEnvironment{Verbatim}{BVerbatim}{}
+\usepackage[base]{babel}           % for proper hypthenation in lipsum sections
+\usepackage{subcaption}            % for multiple sub-figures in a single float
+% Add your packages here
+\usepackage{subfiles}
+% Optional: for adding alt-text to images:
+%\usepackage{pdfcomment}            % for alt text for accessibility
+% Then to add images use:
+% \pdftooltip{\includegraphics[width=0.5\textwidth]{image.pdf}}{Alt-text here}
+% This makes the text in the image non-select-able though (assuming it's a vector file)
+
+% Custom commands
+\newcommand{\degree}{\ensuremath{^\circ}}
+\newcommand{\sus}[1]{$^{\mbox{\scriptsize #1}}$} % superscript in text (e.g. 1st)
+\newcommand{\sub}[1]{$_{\mbox{\scriptsize #1}}$} % subscript in text
+\newcommand{\sect}[1]{Section~\ref{#1}}
+\newcommand{\fig}[1]{Fig.~\ref{fig:#1}}
+\newcommand{\tab}[1]{Table~\ref{table:#1}}
+\newcommand{\equ}[1]{(\ref{#1})}
+\newcommand{\appx}[1]{Appendix~\ref{#1}}
+
+
+%%%%%%%%%%%%%%%%%% REFERENCES SETUP %%%%%%%%%%%%%%%%%%
+
+% Setup your references here. Change the reference style here if wanted
+\usepackage[style=ieee,backend=biber,backref=true,hyperref=auto]{biblatex}
+% Note backref=true adds a page number (and hyperlink) to each reference so you can easily go back from the references to the main document. You may prefer backref=false if you need to stick strictly to a given reference style
+
+
+% Fixes which can't be applied in the .cls file
+\DefineBibliographyStrings{english}{backrefpage = {cited on p\adddot},  backrefpages = {cited on pp\adddot}}
+%  \renewcommand*{\bibfont}{\large}
+
+
+% Add more .bib files here if wanted
+\addbibresource{bibliography/background.bib}
+\addbibresource{bibliography/design-implementation.bib}
+\addbibresource{bibliography/conclusions-future.bib}
+
+
+%%%%%%%%%%%%%%%%%% START DOCUMENT %%%%%%%%%%%%%%%%%%
+
+% Don't edit these lines, title and author are automatically taken from the document meta-data defined above
+\begin{document}
+%TC:ignore
+\makeatletter
+\title{\xmp@Title}
+\studentid{\xmp@Author}
+\makeatother
+
+% Set the below yourself
+\course{Computer Science}
+\supervisor{Dr. Sandra Sampaio}
+\submitdate{2025}                                  % regulations ask only for the year, not month
+\wordcount{14959}		                           % use \wordcount{} to set the count, \thewordcount to print in the text
+
+\maketitle
+
+
+%%%%%%%%%%%%%%%%%% LISTS OF CONTENT %%%%%%%%%%%%%%%%%%
+\uomtoc
+\uomlof
+\uomlot
+\uomloa
+
+
+%%%%%%%%%%%%%%%%%% ABSTRACT %%%%%%%%%%%%%%%%%%
+\begin{abstract} % put abstract here. Limit is 1 page.
+\subfile{sections/abstract}
+\end{abstract}%
+\clearpage
+
+
+%%%%%%%%%%%%%%%%%% DECLARATIONS %%%%%%%%%%%%%%%%%%
+\uomdeclarations % Don't need unless final thesis
+
+
+%%%%%%%%%%%%%%%%%% ACKNOWLEDGEMENTS %%%%%%%%%%%%%%%%%%
+\begin{uomacknowledgements}
+\subfile{sections/acknowledgments}
+\end{uomacknowledgements}
+%TC:endignore
+
+%%%%%%%%%%%%%%%%%% SECTION 1 %%%%%%%%%%%%%%%%%%
+\section{Introduction}
+\label{sec:introduction}
+\subfile{sections/introduction}
+
+%%%%%%%%%%%%%%%%%% SECTION 2 %%%%%%%%%%%%%%%%%%
+\section{Background and Related Work}
+\label{sec:background}
+\subfile{sections/background}
+
+%%%%%%%%%%%%%%%%%% SECTION 3 %%%%%%%%%%%%%%%%%%
+\section{Design and Implementation}
+\label{sec:design-implementation}
+\subfile{sections/design-implementation}
+
+%%%%%%%%%%%%%%%%%% SECTION 4 %%%%%%%%%%%%%%%%%%
+\section{Results and Discussion}
+\label{sec:results-discussions}
+\subfile{sections/results-discussions}
+
+%%%%%%%%%%%%%%%%%% SECTION 5 %%%%%%%%%%%%%%%%%%
+\section{Conclusions and Future Work}
+\label{sec:conclusions-future}
+\subfile{sections/conclusions-future}
+
+%TC:ignore
+%%%%%%%%%%%%%%%%%% REFERENCES %%%%%%%%%%%%%%%%%%
+%\clearpage % uncomment to start on a new page if wanted
+\printbibliography[title={References},heading=bibintoc] % a single list of references for the whole thesis
+
+%%%%%%%%%%%%%%%%%% APPENDICES %%%%%%%%%%%%%%%%%%
+\begin{uomappendix} 
+    \label{sec:appendix}
+    \subfile{sections/appendix}
+\end{uomappendix}
+%TC:endignore
+
+%%%%%%%%%%%%%%%%%% END MATTER %%%%%%%%%%%%%%%%%%
+\end{document}
