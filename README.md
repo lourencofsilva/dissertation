@@ -2,6 +2,14 @@
 
 A comprehensive predictive model training, simulation and benchmarking tool designed to analyze and visualize traffic data and congestion using predictive models. It leverages Python for data processing, SUMO for traffic simulation, and InfluxDB for data storage and retrieval. This project is developed as part of a 3rd Year Project.
 
+## Report
+
+The report produced for this project can be found here: [Project Report (PDF)](report/pdf/report.pdf)
+
+## Screencast
+
+The screencast produced for this project can be found here: [Screencast (MP4)](screencast/screencast.mp4)
+
 ## Requirements
 
 1. **Python Virtual Environment**:
@@ -16,7 +24,7 @@ A comprehensive predictive model training, simulation and benchmarking tool desi
    - Ensure that SUMO (Simulation of Urban MObility) is installed and properly configured on your system. You can download it from [SUMO's official website](https://eclipse.dev/sumo/).
 
 3. **InfluxDB**:
-   - You can set up InfluxDB either on a server or locally. Use the `influxdb-backup` directory to restore the necessary database for the project. The scripts with which this data was collected are available in the `data-sources` directory.
+   - You can set up InfluxDB either on a server or locally. The scripts with which data was collected are available in the `data-sources` directory.
 
 4. **Configuration**:
    - Fill in the required keys and configuration in `tools/config.py`.
@@ -31,9 +39,6 @@ This directory contains a jupyter notebook for data analysis and visualization o
 
 ### `data-sources/`
 This directory contains scripts for collecting traffic and event data from various sources.
-
-### `influxdb-backup/`
-This directory provides backup files for setting up InfluxDB. Use these files to restore the database required for the project.
 
 ### `model/`
 This directory contains a framework for training predictive models for traffic sensors. Key files include:
@@ -65,8 +70,7 @@ This directory contains utility scripts and configuration files.
    - Ensure SUMO is installed and configured correctly.
 
 3. **Set Up InfluxDB**:
-   - Restore the InfluxDB database using the files in the `influxdb-backup` directory.
-   - The admin token required to restore from backup is provided in that same directory in the `admin-token.txt` file.
+   - Set up the database and perform data collection.
 
 4. **Configure the Project**:
    - Fill in the necessary configuration in `tools/config.py`.
@@ -85,6 +89,7 @@ This directory contains utility scripts and configuration files.
    - Use `plot_metrics.py` to aggregate and generate plots for simulation metrics.
 
 ## Author
-Lourenço Figueiredo Silva (lourenco.figueiredosilva@student.manchester.ac.uk)
+Lourenço Figueiredo Silva (<lourenco.figueiredosilva@student.manchester.ac.uk>)
 
 Supervised by: Dr. Sandra Sampaio (s.sampaio@manchester.ac.uk)
+
